@@ -23,9 +23,10 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APP_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (e.g., PR comments)
           action: "upload"
-          app_location: "/"          # root folder where index.html lives
+          app_location: "website_project"          # root folder where index.html lives
           output_location: ""        # leave blank for plain HTML
           app_build_command: ""      # disable build step
+
 
 
 
