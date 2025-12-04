@@ -10,25 +10,15 @@
     <style>
         :root {
             --bg: #0f172a;
-            /* slate-900 */
             --panel: #111827;
-            /* gray-900 */
             --card: #0b1220;
-            /* deep panel */
             --text: #e5e7eb;
-            /* gray-200 */
             --muted: #9ca3af;
-            /* gray-400 */
             --accent: #60a5fa;
-            /* blue-400 */
             --accent-2: #22c55e;
-            /* green-500 */
             --border: #1f2937;
-            /* gray-800 */
             --chip: #1e293b;
-            /* slate-800 */
             --link: #93c5fd;
-            /* light-blue-300 */
         }
 
         * {
@@ -41,7 +31,7 @@
             padding: 0;
             background: radial-gradient(1200px 800px at 20% -10%, #0b1020 0%, #0f172a 35%, #0a0f1f 100%);
             color: var(--text);
-            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
             line-height: 1.6;
         }
 
@@ -51,8 +41,8 @@
             padding: 24px;
         }
 
-       
- .header {
+        /* Header */
+        .header {
             display: grid;
             grid-template-columns: 120px 1fr 240px;
             gap: 20px;
@@ -84,6 +74,43 @@
             color: var(--muted);
         }
 
+        .badge {
+            font-size: 0.75rem;
+            /* smaller text */
+            padding: 4px 8px;
+            /* tighter padding */
+            gap: 6px;
+            /* less space between icon and text */
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, #0f1a2d, #0a1324);
+            color: var(--text);
+            max-width: 100%;
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .badge-icon {
+            width: 36px;
+            /* smaller icon */
+            height: 36px;
+        }
+
+
+        @media (max-width: 480px) {
+            .badge {
+                font-size: 0.65rem;
+                padding: 3px 6px;
+            }
+
+            .badge-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+
         .badges {
             display: flex;
             gap: 10px;
@@ -102,33 +129,11 @@
             color: var(--text);
             font-size: 0.9rem;
             white-space: nowrap;
-        }
-
-        .badge-icon {
-            width: 50px;
-            height: 50px;
-            margin-right: 8px;
-            vertical-align: middle;
-            border-radius: 4px;
-            /* optional */
-        }
-
-        .badges {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            /* apply animation to the whole badges container */
-            animation: slideInRight 1s ease-out forwards;
-        }
-
-        /* If you want each badge to animate one after another */
-        .badge {
             opacity: 0;
             transform: translateX(100px);
             animation: slideInRight 0.8s ease-out forwards;
         }
 
-        /* Staggered animation delays for each badge */
         .badge:nth-child(1) {
             animation-delay: 0.2s;
         }
@@ -137,9 +142,6 @@
             animation-delay: 0.4s;
         }
 
-        /* add more nth-child rules if you have more badges */
-
-        /* Keyframes definition */
         @keyframes slideInRight {
             from {
                 opacity: 0;
@@ -152,18 +154,19 @@
             }
         }
 
-        .icon-img {
-            width: 20px;
-            height: 20px;
-            display: block;
-        }
-
         .badge svg {
             width: 18px;
             height: 18px;
             fill: var(--accent-2);
         }
 
+        .icon-img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        /* Grid layout */
         .grid {
             display: grid;
             grid-template-columns: 300px 1fr;
@@ -171,6 +174,7 @@
             margin-top: 24px;
         }
 
+        /* Panels and cards */
         .panel {
             background: linear-gradient(180deg, rgba(17, 24, 39, 0.6), rgba(2, 6, 23, 0.5));
             border: 1px solid var(--border);
@@ -283,13 +287,65 @@
                 border-color: #ddd;
             }
 
-            .section-title {
-                color: #0647a5;
-            }
-
+            .section-title,
             a {
                 color: #0647a5;
             }
+        }
+
+        /* ✅ Responsive rules */
+        @media (max-width: 768px) {
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 12px;
+            }
+
+            .title {
+                margin-bottom: 12px;
+            }
+
+            .badges {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px;
+            }
+
+            .title h1 {
+                font-size: 1.4rem;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+        }
+
+        img,
+        .avatar {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -360,8 +416,8 @@
                     </div>
                     <div class="contact-item">
                         <div class="icon" aria-hidden="true">🌐</div>
-                        <div><strong>Website:</strong> <a href="https://salmon-cliff-013b09f0f.3.azurestaticapps.net/" target="_blank"
-                                rel="noopener">MyWebSite</a></div>
+                        <div><strong>Website:</strong> <a href="https://salmon-cliff-013b09f0f.3.azurestaticapps.net/"
+                                target="_blank" rel="noopener">MyWebSite</a></div>
                     </div>
                     <div class="contact-item">
                         <div class="icon" aria-hidden="true">in</div>
@@ -419,7 +475,8 @@
                     <h3>IT Support Engineer — Associated British Foods PLC</h3>
                     <p class="muted">April 2024 — Present</p>
                     <ul>
-                        <li>Supported end-to-end User account and AD Group management in On-perm Active Directory and Azure Entra ID
+                        <li>Supported end-to-end User account and AD Group management in On-perm Active Directory and
+                            Azure Entra ID
                         </li>
                         <li>Intune and Microsfot 365 Administration Tasks</li>
                         <li>Providing technical assistance, system troubleshooting and maintenance</li>
@@ -448,3 +505,5 @@
 </body>
 
 </html>
+
+
